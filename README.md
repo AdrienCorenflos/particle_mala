@@ -4,15 +4,20 @@ This repository contains the code for the paper [Particle-MALA and Particle-mGRA
 It contains both a general implementation of the algorithms considered and the code to reproduce the experiments.
 
 ## Abstract
-State-of-the-art methods for Bayesian inference in state-space models are (a) conditional sequential Monte Carlo (CSMC) algorithms; (b) sophisticated ‘classical’ MCMC algorithms like MALA, or mGRAD from Titsias and Papaspiliopoulos (2018). 
-The former propose N particles at each time step to exploit the model’s ‘decorrelation-over-time’ property and thus scale favourably with the time horizon, T , but break down if the dimension of the latent states, D, is large. 
-The latter leverage gradient- or prior-informed local proposals to scale favourably with D but exhibit sub-optimal scalability with T due to a lack of model-structure exploitation. 
+State-of-the-art methods for Bayesian inference in state-space models are (a) [conditional sequential Monte Carlo (CSMC)](https://rss.onlinelibrary.wiley.com/doi/full/10.1111/j.1467-9868.2009.00736.x) algorithms; (b) sophisticated ‘classical’ MCMC algorithms like MALA, or mGRAD from [Titsias and Papaspiliopoulos (2018)](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/rssb.12269). 
+The former propose $N$ particles at each time step to exploit the model’s ‘decorrelation-over-time’ property and thus scale favourably with the time horizon, $T$, but break down if the dimension of the latent states, $D$, is large. 
+The latter leverage gradient- or prior-informed local proposals to scale favourably with $D$ but exhibit sub-optimal scalability with $T$ due to a lack of model-structure exploitation. 
+
 We introduce methods which amalgamate the strengths of both approaches. 
-The first, Particle-MALA, spreads N particles locally around the current state using gradient information, thus extending MALA to T > 1 time steps and N > 1 proposals. 
-The second, Particle-mGRAD, additionally incorporates (conditionally) Gaussian prior dynamics into the proposal, thus extending the mGRAD algorithm to T > 1 time steps and N > 1 proposals. 
-We prove that Particle-mGRAD interpolates between CSMC and Particle-MALA, resolving the ‘tuning problem’ of choosing between CSMC (superior for highly informative prior dynamics) and Particle-MALA (superior for weakly informative prior dynamics). 
-We similarly extend other ‘classical’ MCMC approaches like auxiliary MALA, aGRAD, and preconditioned Crank–Nicolson–Langevin (PCNL) to T > 1 time steps and N > 1 proposals. 
+The first, Particle-MALA, spreads $N$ particles locally around the current state using gradient information, thus extending MALA to $T > 1$ time steps and $N > 1$ proposals. The second, Particle-mGRAD, additionally incorporates (conditionally) Gaussian prior dynamics into the proposal, thus extending the mGRAD algorithm to $T > 1$ time steps and $N > 1$ proposals. We prove that Particle-mGRAD interpolates between CSMC and Particle-MALA, resolving the ‘tuning problem’ of choosing between CSMC (superior for highly informative prior dynamics) and Particle-MALA (superior for weakly informative prior dynamics). 
+
+We similarly extend other ‘classical’ MCMC approaches like auxiliary MALA, aGRAD, and [preconditioned Crank–Nicolson–Langevin (PCNL)](https://projecteuclid.org/journals/statistical-science/volume-28/issue-3/MCMC-Methods-for-Functions--Modifying-Old-Algorithms-to-Make/10.1214/13-STS421.full) to $T > 1$ time steps and $N > 1$ proposals. 
 In experiments, for both highly and weakly informative prior dynamics, our methods substantially improve upon both CSMC and sophisticated ‘classical’ MCMC approaches.
+
+## Expected behaviour
+|  ![lgssm_dimension](https://github.com/AdrienCorenflos/particle_mala/assets/19948263/5980e1ae-16b8-4857-8fdf-9643255216fc) | ![lgssm_time](https://github.com/AdrienCorenflos/particle_mala/assets/19948263/b4336faf-4c82-44b6-9ffb-f8cfc44a8f92) | ![lgssm_variance](https://github.com/AdrienCorenflos/particle_mala/assets/19948263/111ff857-0c6d-4d1f-aba0-d405e1ac620c) |
+| :--: | :--: | :--: | 
+| *Scaling of the methods with the dimension* | *Scaling of the methods with the number of time steps* | *Scaling for informative vs. uninformative dynamics* |
 
 ## Installation
 Create a clean environment using your favourite environment manager.
