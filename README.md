@@ -1,6 +1,6 @@
 # Gradient-based conditional SMC for inference of high-dimensional Markovian systems
 
-This repository contains the code for the paper [Particle-MALA and Particle-mGRAD: Gradient-informed MCMC methods for high-dimensional state-space models](...) by [Adrien Corenflos](https://adriencorenflos.github.io/) and [Axel Finke](https://www.lboro.ac.uk/departments/maths/staff/axel-finke/).
+This repository contains the code for the paper [Particle-MALA and Particle-mGRAD: Gradient-based MCMC methods for high-dimensional state-space models](...) by [Adrien Corenflos](https://adriencorenflos.github.io/) and [Axel Finke](https://www.lboro.ac.uk/departments/maths/staff/axel-finke/).
 It contains both a general implementation of the algorithms considered and the code to reproduce the experiments.
 
 ## Abstract
